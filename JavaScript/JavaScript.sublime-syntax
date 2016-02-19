@@ -545,8 +545,9 @@ contexts:
         2: punctuation.dollar.js
         3: punctuation.separator.key-value.js
     - match: '(?<!\.|\?|\?\s)([_$a-zA-Z][$\w]*)\s*(:)'
+      scope: constant.other.object.key.js
       captures:
-        1: meta.object-literal.key.js
+        1: string.unquoted.label.js
         2: punctuation.separator.key-value.js
   literal-language-constant:
     - match: (?<!\.)\btrue\b
