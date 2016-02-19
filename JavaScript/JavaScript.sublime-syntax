@@ -84,8 +84,6 @@ contexts:
     - include: literal-module
     - include: literal-class
     - include: literal-constructor
-    - include: literal-method-call
-    - include: literal-function-call
     - include: comments
     - include: brackets
     - include: literal-operators
@@ -474,29 +472,6 @@ contexts:
         - match: (?<=\))
           pop: true
         - include: function-declaration-parameters
-  literal-function-call:
-    - match: |-
-        (?x)
-        ((?<![\w$])\$)\s*
-        (?=\()
-      scope: meta.function-call.with-arguments.js
-      captures:
-        1: variable.function.js variable.other.dollar.only.js punctuation.dollar.js
-    - match: |-
-        (?x)
-        ([_$a-zA-Z][$\w]*)\s*
-        (\(\s*\))
-      scope: meta.function-call.without-arguments.js
-      captures:
-        1: variable.function.js
-        2: meta.group.braces.round.function.arguments.js
-    - match: |-
-        (?x)
-        ([_$a-zA-Z][$\w]*)\s*
-        (?=\()
-      scope: meta.function-call.with-arguments.js
-      captures:
-        1: variable.function.js
   literal-function-labels:
     - match: |-
         (?x)
@@ -631,47 +606,6 @@ contexts:
         - match: (?<=\))
           pop: true
         - include: function-declaration-parameters
-  literal-method-call:
-    - match: |-
-        (?x)
-        (?:(?<=\.)|\b)
-        ([A-Z][$\w]*)\s*(\.)
-        ([_$a-zA-Z][$\w]*)\s*
-        (\(\s*\))
-      scope: meta.function-call.static.without-arguments.js
-      captures:
-        1: variable.other.class.js
-        2: keyword.operator.accessor.js
-        3: variable.function.js
-        4: meta.group.braces.round.function.arguments.js
-    - match: |-
-        (?x)
-        (?:(?<=\.)|\b)
-        ([A-Z][$\w]*)\s*(\.)
-        ([_$a-zA-Z][$\w]*)\s*
-        (?=\()
-      scope: meta.function-call.static.with-arguments.js
-      captures:
-        1: variable.other.class.js
-        2: keyword.operator.accessor.js
-        3: variable.function.js
-    - match: |-
-        (?x)
-        (?<=\.)
-        ([_$a-zA-Z][$\w]*)\s*
-        (\(\s*\))
-      scope: meta.function-call.method.without-arguments.js
-      captures:
-        1: variable.function.js
-        2: meta.group.braces.round.function.arguments.js
-    - match: |-
-        (?x)
-        (?<=\.)
-        ([_$a-zA-Z][$\w]*)\s*
-        (?=\()
-      scope: meta.function-call.method.with-arguments.js
-      captures:
-        1: variable.function.js
   literal-module:
     - match: (?<!\.)\b(import|export|default|from|as)\b
       scope: keyword.operator.module.js
@@ -916,12 +850,8 @@ contexts:
         1: variable.other.class.js
         2: keyword.operator.accessor.js
         3: variable.other.property.static.js
-    - match: '(?<!\.)[_$a-zA-Z][$\w]*\s*(?=[\[\.])'
-      scope: variable.other.object.js
     - match: '(?<=\.)\s*[_$a-zA-Z][$\w]*'
       scope: meta.property.object.js
-    - match: '[_$a-zA-Z][$\w]*'
-      scope: variable.other.readwrite.js
   round-brackets:
     - match: \(
       captures:
