@@ -13,6 +13,9 @@ file_extensions:
   - sublime-completions
 scope: source.json
 contexts:
+  prototype:
+    - include: Packages/sublime-packages/Git/git-conflicts.sublime-syntax
+
   main:
     - include: value
   array:

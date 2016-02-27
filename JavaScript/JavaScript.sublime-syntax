@@ -16,6 +16,9 @@ variables:
   arrow_func_lookahead: '\s*(\basync\s*)?([_$[:alpha:]][_$[:alnum:]]*|\(.*?\))\s*=>'
 
 contexts:
+  prototype:
+    - include: Packages/sublime-packages/Git/git-conflicts.sublime-syntax
+
   main:
     - include: comments-top-level
     - include: keywords-top-level

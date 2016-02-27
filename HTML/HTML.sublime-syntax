@@ -12,6 +12,9 @@ file_extensions:
 first_line_match: (?i)<(!DOCTYPE\s*)?html
 scope: text.html.basic
 contexts:
+  prototype:
+    - include: Packages/sublime-packages/Git/git-conflicts.sublime-syntax
+
   main:
     - match: '(<)([a-zA-Z0-9:]++)(?=[^>]*></\2>)'
       captures:

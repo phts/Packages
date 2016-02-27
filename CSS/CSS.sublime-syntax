@@ -7,6 +7,9 @@ file_extensions:
   - css.erb
 scope: source.css
 contexts:
+  prototype:
+    - include: Packages/sublime-packages/Git/git-conflicts.sublime-syntax
+
   main:
     - include: comment-block
     - include: selector

@@ -9,6 +9,9 @@ file_extensions:
 first_line_match: ^%YAML( 1.\d)?$
 scope: source.yaml
 contexts:
+  prototype:
+    - include: Packages/sublime-packages/Git/git-conflicts.sublime-syntax
+
   main:
     - match: ^(\s*)(?:(-)|(?:(-\s*)?(\w+\s*(:))))\s*(\||>)
       captures:
