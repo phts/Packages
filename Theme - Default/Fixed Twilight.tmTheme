@@ -126,6 +126,17 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
+				<string>#F8F8F8</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Highlighted variables</string>
+			<key>scope</key>
+			<string>variable.language, variable.parameter, variable.other.constant, variable.other.readwrite.instance, variable.other.readwrite.class, variable.other.readwrite.global</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
 				<string>#7587A6</string>
 			</dict>
 		</dict>
