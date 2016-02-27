@@ -131,6 +131,17 @@
 		</dict>
 		<dict>
 			<key>name</key>
+			<string>Specific variables</string>
+			<key>scope</key>
+			<string>meta.object-literal.key</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#8F9D6A</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
 			<string>Invalid – Deprecated</string>
 			<key>scope</key>
 			<string>invalid.deprecated</string>
