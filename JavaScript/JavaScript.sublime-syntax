@@ -17,7 +17,7 @@ variables:
 
 contexts:
   prototype:
-    - include: Packages/sublime-packages/Git/git-conflicts.sublime-syntax
+    - include: Packages/Git/git-conflicts.sublime-syntax
 
   main:
     - include: comments-top-level
