@@ -1,5 +1,11 @@
 # Sublime Packages
 
+This is a fork of [sublimehq/Packages](https://github.com/sublimehq/Packages).
+It contains some my fixes and improvements (in most cases for JavaScript and Ruby).
+Also there is an enhanced "Twilight" theme which has some improvements based on the syntax changes.
+
+---
+
 > **Note that these packages will not work with any version of Sublime Text older than [Dev Build](http://sublimetext.com/3dev) 3092.**
 
 ## Installation
@@ -26,22 +32,3 @@ Alternatively, download the portable version, and clone this repository directly
 ---
 
 After you've finished, keep in mind that you're now overriding a default package. When Sublime Text updates to a new version, you'll run the risk of having an out-of-date package unless you pull the latest changes from this repository.
-
-## Pull Requests
-
-Pull requests should:
-
- 1. Start with the name of the package in square brackets, e.g. `[XML]`.
- 2. Be as small and self-contained as is reasonable. *Smaller changes are quicker to review.*
- 3. Include a new, or enhanced, [syntax test](http://www.sublimetext.com/docs/3/syntax.html) when changing a `.sublime-syntax` file.
- 4. Have multiple syntax tests and a set of performance measurements (old vs. new) when making significant changes.
-
-### New Packages
-
-Pull requests for new packages won't be accepted at this stage, as new packages can cause issues for users who have a package with the same name installed via Package Control. There are some planned changes that will address this in the future.
-
-Complex plugins such as auto complete systems and linters should generally be in a stand-alone package, rather than included in the default set of packages.
-
-## Missing Packages
-
-This repository only contains syntax-definition-focused packages. Notably, packages such as *Default* and *Theme - Default* are not included.
