@@ -1,8 +1,32 @@
 # Sublime Packages
 
 This is a fork of [sublimehq/Packages](https://github.com/sublimehq/Packages).
-It contains some my fixes and improvements (in most cases for JavaScript and Ruby).
-Also there is an enhanced "Twilight" theme which has some improvements based on the syntax changes.
+It contains some of my fixes and improvements:
+
+1. JavaScript
+
+    - Revert some things related to functions and object keys to look like it was before build 3092
+
+1. Git
+
+    - Add syntax highlighting of git conflicts and use it for:
+
+        - CSS
+        - HTML
+        - JavaScript
+        - JSON
+        - Ruby
+        - YAML
+
+1. Ruby
+
+    - Revert [sublimehq/Packages#466](https://github.com/sublimehq/Packages/pull/466) because it causes a parsing error
+
+1. Twilight Theme
+
+    - Added to the repo and contains some improvements based on the syntax changes
+
+1. All other packages are removed from the repo
 
 ---
 
