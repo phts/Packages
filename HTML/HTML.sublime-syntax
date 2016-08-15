@@ -13,7 +13,7 @@ first_line_match: (?i)<(!DOCTYPE\s*)?html
 scope: text.html.basic
 contexts:
   prototype:
-    - include: Packages/Git/git-conflicts.sublime-syntax
+    - include: Packages/Git Conflicts/git-conflicts.sublime-syntax
 
   main:
     - match: (<\?)(xml)
