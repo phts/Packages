@@ -18,10 +18,6 @@ It contains some of my fixes and improvements:
         - Ruby
         - YAML
 
-1. Ruby
-
-    - Revert [sublimehq/Packages#466](https://github.com/sublimehq/Packages/pull/466) because it causes a parsing error
-
 1. Twilight Theme
 
     - Added to the repo and contains some improvements based on the syntax changes
