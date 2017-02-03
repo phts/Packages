@@ -522,6 +522,7 @@ contexts:
               | rtl|ruby|running|saturat(e|ion)|screen
               | scroll(-position|bar)?
               | separate|sepia
+              | scale-down
               | shape-(image-threshold|margin|outside)
               | show
               | sideways(-lr|-rl)?
@@ -613,6 +614,26 @@ contexts:
             1: keyword.other.custom-property.prefix.css
             2: support.type.custom-property.name.css
         - include: custom-property-name
+        - match: \bfont(-family)?(?!-)\b
+          scope: support.type.property-name.css
+          push:
+            - match: (:)([ \t]*)
+              captures:
+                1: punctuation.separator.key-value.css
+                2: meta.property-value.css
+              push:
+                - meta_content_scope: meta.property-value.css
+                - match: '\s*(;)|(?=[})])'
+                  captures:
+                    1: punctuation.terminator.rule.css
+                  pop: true
+                - include: property-values
+                - match: '{{ident}}'
+                  scope: string.unquoted.css
+                - match: ','
+                  scope: punctuation.separator.css
+            - match: ''
+              pop: true
         # Property names are sorted by popularity in descending order.
         # Popularity data taken from https://www.chromestatus.com/metrics/css/popularity
         - match: |-
@@ -691,9 +712,10 @@ contexts:
               | symbols|speak-as|grid-gap|grid-row-gap
             )\b
           scope: support.type.property-name.css
-    - match: (:)\s*
+    - match: (:)([ \t]*)
       captures:
         1: punctuation.separator.key-value.css
+        2: meta.property-value.css
       push:
         - meta_content_scope: meta.property-value.css
         - match: '\s*(;)|(?=[})])'
