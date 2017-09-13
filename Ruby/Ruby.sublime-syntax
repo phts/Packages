@@ -42,6 +42,7 @@ name: Ruby
 # but also consider 'a.b?(:c)' ??
 file_extensions:
   - rb
+  - Appfile
   - Appraisals
   - Berksfile
   - Brewfile
@@ -49,6 +50,8 @@ file_extensions:
   - cgi
   - Cheffile
   - config.ru
+  - Deliverfile
+  - Fastfile
   - fcgi
   - Gemfile
   - gemspec
@@ -64,7 +67,9 @@ file_extensions:
   - rbx
   - rjs
   - ruby.rail
+  - Scanfile
   - simplecov
+  - Snapfile
   - thor
   - Thorfile
   - Vagrantfile
@@ -748,6 +753,7 @@ contexts:
       pop: true
     - match: '{{identifier}}'
       scope: variable.parameter.ruby
+    - include: comments
     - match: ','
       scope: punctuation.separator.ruby
     - match: '\*'
@@ -795,7 +801,7 @@ contexts:
   # When no parentheses are placed around the parameters
   method-bare-parameters:
     - meta_content_scope: meta.function.parameters.ruby
-    - match: '(?=$|;)'
+    - match: '(?=$|;|#)'
       pop: true
     - match: '{{identifier}}'
       scope: variable.parameter.ruby
@@ -1058,8 +1064,9 @@ contexts:
       captures:
         1: string.regexp.classic.ruby punctuation.definition.string.ruby
       push:
-        - meta_scope: string.regexp.classic.ruby
+        - meta_content_scope: string.regexp.classic.ruby
         - match: "(/)([eimnosux]*)"
+          scope: string.regexp.classic.ruby
           captures:
             1: punctuation.definition.string.ruby
             2: keyword.other.ruby
@@ -1073,6 +1080,8 @@ contexts:
     - match: /=
       scope: keyword.operator.assignment.augmented.ruby
     - match: '(?=^\s*/)'
+      push: try-regex
+    - match: '(?=/\s*[^[:alnum:](\s])'
       push: try-regex
     # regular expressions (literal)
     - match: '%r\{'
