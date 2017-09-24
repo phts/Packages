@@ -18,10 +18,6 @@ It contains some of my fixes and improvements:
         - Ruby
         - YAML
 
-1. Twilight Theme
-
-    - Added to the repo and contains some improvements based on the syntax changes
-
 1. All other packages are removed from the repo
 
 ---
