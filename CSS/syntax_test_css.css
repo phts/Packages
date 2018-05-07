@@ -63,6 +63,14 @@
 /*   ^^^^^^^^^     keyword.control.at-rule.namespace.css */
 /*             ^^^ entity.other.namespace-prefix.css     */
 
+    @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"); /* only needed once */
+/*  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.at-rule.namespace.css */
+/*             ^^^ support.function.url.css */
+/*             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.function-call.css */
+/*                ^ meta.group.css punctuation.definition.group.begin.css */
+/*                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.group.css string.quoted.double.css */
+/*                                                                                ^ meta.group.css punctuation.definition.group.end.css */
+
     @page :left {}
 /*  ^^^^^^^^^^^^^^ meta.at-rule.page.css */
 /*  ^     punctuation.definition.keyword.css */
@@ -246,6 +254,10 @@
 /*      ^^^^^^^ meta.at-rule.supports.css meta.property-name.css */
     }
 }
+
+    @counter-style {}
+/*  ^          punctuation.definition.keyword.css  */
+/*  ^^^^^^^^^^^^^^ keyword.control.at-rule.counter-style.css */
 
 @counter-style none {}
 /*             ^^^^ invalid.illegal.counter-style-name.css */
@@ -507,6 +519,9 @@
     color: #137;
 /*         ^^^^ constant.other.color.rgb-value.css */
 
+    color: #0f0a;
+/*         ^^^^^ constant.other.color.rgba-value.css */
+
     color: #a1b2c3d4;
 /*         ^^^^^^^^^ constant.other.color.rgba-value.css */
 
@@ -631,7 +646,12 @@
 /*                  ^^^ constant.numeric.css           */
 
     top: translateX(1%);
+/*       ^^^^^^^^^^ support.function.transform */
 /*                  ^^ constant.numeric.css */
+
+    top: translateZ(0);
+/*       ^^^^^^^^^^ support.function.transform */
+/*                  ^ constant.numeric.css */
 
     top: skewY(1deg);
 /*       ^^^^^      support.function.transform.css */
@@ -654,6 +674,13 @@
     top: skewY(1rad) rotate(1turn);
 /*                   ^^^^^^       support.function.transform.css */
 /*                          ^^^^^ constant.numeric.css           */
+
+    transform: translate(var(--center), 0) scale(var(--ripple-scale), 1);
+/*             ^^^^^^^^^ support.function.transform */
+/*                       ^^^ support.function.var */
+/*                           ^^^^^^^^ support.type.custom-property */
+/*                                      ^ constant.numeric */
+/*                                               ^^^ support.function.var */
 }
 
 .test-timing-functions {
@@ -993,9 +1020,10 @@
 /*                                  ^^^^^^^^ string.unquoted */
 /*                                          ^ - string */
 /*                                            ^^^^^ support.constant.font-name */
-.generic-font-family2 { font-family: sans-serif , fantasy ; }
+.generic-font-family2 { font-family: sans-serif , fantasy , system-ui; }
 /*                                   ^^^^^^^^^^ support.constant.font-name */
 /*                                                ^^^^^^^ support.constant.font-name */
+/*                                                          ^^^^^^^^^ support.constant.font-name */
 .generic-font-family3 {
     font-family: cursive
 /*               ^^^^^^^ support.constant.font-name */
